@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Cameo | Expense Tracker</title>
+  <link rel="icon" type="image/png" href="codecameo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div class="brand-lockup">
+        <img class="brand-logo" src="codecameo.png" alt="Code Cameo logo">
+        <div>
+          <span class="brand-name">Code Cameo</span>
+          <p class="eyebrow">Team training project</p>
+          <h1>Expense Tracker</h1>
+        </div>
+      </div>
 
+      <section class="total-panel" aria-label="Total expenses">
+        <span>Total spent</span>
+        <strong id="totalAmount">₹0</strong>
+      </section>
+    </header>
+
+    <section class="tracker-layout">
+      <form id="expenseForm" class="expense-form">
+        <h2>Add expense</h2>
+
+        <label for="expenseName">Expense name</label>
+        <input id="expenseName" type="text" placeholder="Lunch" autocomplete="off" required>
+
+        <label for="expenseAmount">Amount</label>
+        <input id="expenseAmount" type="number" placeholder="150" min="1" step="1" required>
+
+        <label for="expenseCategory">Category</label>
+        <select id="expenseCategory" required>
+          <option value="Food">Food</option>
+          <option value="Travel">Travel</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Bills">Bills</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <p id="formError" class="form-error" role="alert"></p>
+        <button type="submit">Add Expense</button>
+      </form>
+
+      <section class="expense-board">
+        <div class="board-header">
+          <h2>Expenses</h2>
+
+          <label for="categoryFilter">
+            Filter
+            <select id="categoryFilter">
+              <option value="All">All</option>
+              <option value="Food">Food</option>
+              <option value="Travel">Travel</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Bills">Bills</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="expenseList"></tbody>
+          </table>
+        </div>
+
+        <p id="emptyState" class="empty-state">No expenses yet. Add your first one.</p>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
